@@ -1,4 +1,5 @@
-What is arduino? Arduino psihical is a board with terminals with can make some pulses with can command several machines,robots,etc. In same time Arduino is a Program with can make code for command this board. "Brain" of this board is a piece of plastic with terminals that inside have memory and can make a decision alt text 
+What is arduino? Arduino psihical is a board with terminals with can make some pulses with can command several machines,robots,etc. In same time Arduino is a Program with can make code for command this board.
+"Brain" of this board is a piece of plastic with terminals that inside have memory and can make a decision alt text 
 ![alt text](https://github.com/costycnc/costycnc-old-programs/blob/master/low%20program%20arduino/F7589339-01.jpg)
 , but single not can work with another external boards because not have enough power,can not comunicate,ecc... for this is mounting on a board together with other components The general name of these intelligent piece of plastic is microcontroller and program with can write code for microcontroler is called IDE (integrated development environment) https://searchsoftwarequality.techtarget.com/.../integra
 
