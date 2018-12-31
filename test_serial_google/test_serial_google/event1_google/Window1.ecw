@@ -1,0 +1,370 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = Window1
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 3
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 3885
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = 0
+  KeepSize        = 0
+  KeyPreview      = 0
+  Left            = 0
+  MaximizeBox     = 1
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 1
+  NormalStyle     = 0x56CF0000
+  Picture         = ID1
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = Window1
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 3495
+  Begin Edit = Edit2
+    AutoHScroll     = 1
+    AutoVScroll     = 0
+    BackColor       = 0x80000005
+    Border          = 0
+    CaseStyle       = 0
+    ClientEdge      = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1005
+    Enabled         = 1
+    ExStyle         = 0x00000200
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000008
+    Height          = 330
+    Left            = 1470
+    MaxLength       = 0
+    MultiLine       = 0
+    NormalStyle     = 0x54000001
+    PasswordChar    = 
+    ReadOnly        = 0
+    RightToLeft     = 0
+    ScrollBars      = 0
+    StaticEdge      = 0
+    TabOrder        = 5
+    TabStop         = 1
+    Text            = com5
+    TextAlignment   = 1
+    ToolTipText     = 
+    Top             = 2970
+    Visible         = 1
+    WantReturn      = 0
+    Width           = 615
+  End
+  Begin Button = Button1
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1004
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 345
+    ImageType       = -1
+    Left            = 90
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 4
+    TabStop         = 1
+    Text            = Open Port
+    ToolTipText     = 
+    Top             = 2940
+    Visible         = 1
+    Width           = 1185
+  End
+  Begin Edit = Edit1
+    AutoHScroll     = 1
+    AutoVScroll     = 0
+    BackColor       = 0x80000005
+    Border          = 0
+    CaseStyle       = 0
+    ClientEdge      = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1003
+    Enabled         = 1
+    ExStyle         = 0x00000200
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000008
+    Height          = 330
+    Left            = 1005
+    MaxLength       = 0
+    MultiLine       = 0
+    NormalStyle     = 0x54000001
+    PasswordChar    = 
+    ReadOnly        = 0
+    RightToLeft     = 0
+    ScrollBars      = 0
+    StaticEdge      = 0
+    TabOrder        = 3
+    TabStop         = 1
+    Text            = 0
+    TextAlignment   = 1
+    ToolTipText     = 
+    Top             = 210
+    Visible         = 1
+    WantReturn      = 0
+    Width           = 690
+  End
+  Begin Image = Image1
+    BackColor       = 0x8000000F
+    Border          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1000
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Height          = 480
+    ImageType       = -1
+    Left            = 2370
+    NormalStyle     = 0x54000100
+    Picture         = [None]
+    StaticEdge      = 0
+    Stretch         = 0
+    TabOrder        = 0
+    ToolTipText     = 
+    Top             = 675
+    Transparent     = 0
+    Visible         = 1
+    Width           = 615
+  End
+  Begin Image = Image2
+    BackColor       = 0x8000000F
+    Border          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1001
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Height          = 435
+    ImageType       = -1
+    Left            = 1965
+    NormalStyle     = 0x54000100
+    Picture         = [None]
+    StaticEdge      = 0
+    Stretch         = 0
+    TabOrder        = 1
+    ToolTipText     = 
+    Top             = 180
+    Transparent     = 0
+    Visible         = 1
+    Width           = 615
+  End
+  Begin Image = Image3
+    BackColor       = 0x8000000F
+    Border          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1002
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Height          = 435
+    ImageType       = -1
+    Left            = 735
+    NormalStyle     = 0x54000100
+    Picture         = [None]
+    StaticEdge      = 0
+    Stretch         = 0
+    TabOrder        = 2
+    ToolTipText     = 
+    Top             = 2310
+    Transparent     = 0
+    Visible         = 1
+    Width           = 615
+  End
+End
+
+;EV_RXFLAG Equ 2H
+;EV_TXEMPTY                           equ 4h
+;EV_CTS                               equ 8h
+;EV_DSR                               equ 10h
+;EV_RLSD                              equ 20h
+;EV_BREAK                             equ 40h
+;EV_ERR                               equ 80h
+;EV_RING                              equ 100h
+;EV_PERR                              equ 200h
+;EV_RX80FULL                          equ 400h
+;EV_EVENT1                            equ 800h
+;EV_EVENT2                            equ 1000h
+
+;http://msdn.microsoft.com/en-us/library/windows/desktop/aa363428(v=vs.85).aspx
+.Const
+WM_FINISH Equ WM_USER + 100H
+.Data?
+
+.Data
+costy DD 0
+hEventStart DD 0
+hThread DD 0
+eu DD 0
+acom DB "com5 ", 0
+hCom DD 0
+retEvent 	DD 0
+ThreadID DD 0
+variabila DD 0
+buf DB "                                            ", 0
+bytesread DD 0
+buf1 DB 10 Dup (0)
+buf1nr DD 0
+numar DD 0
+buf2 DB "                       ", 0
+char Byte 0
+nr DD 0
+este_1 DB "este_1", 0
+este_0 DB "este_0", 0
+hInstance DD 0
+himage DD 0
+himage1 DD 0
+himage2 DD 0
+pincts DB "Pin CTS to GROUND !!! ", 0
+pino DB "Pin is NORMAL FUNCTION !!! ", 0
+sr DB "Serial CTS CP2102 TEST!!!", 0
+.Code
+
+Window1Procedure Proc hWnd:HWND, uMsg:ULONG, wParam:WPARAM, lParam:LPARAM
+
+	.If uMsg == WM_CREATE
+		Invoke SetWindowText, hWnd, Addr sr
+Invoke GetDlgItem, hWnd, IDC_WINDOW1_IMAGE1
+Mov himage, Eax
+Invoke GetDlgItem, hWnd, IDC_WINDOW1_IMAGE2
+Mov himage1, Eax
+Invoke GetDlgItem, hWnd, IDC_WINDOW1_IMAGE3
+Mov himage2, Eax
+
+		Mov Eax, hWnd
+		Mov eu, Eax
+
+
+
+
+
+
+
+
+		.ElseIf uMsg == WM_FINISH
+Invoke SetDlgItemInt, hWnd, IDC_WINDOW1_EDIT1, retEvent, 0
+.If retEvent == 8
+Invoke SetBackColor, himage, 255
+
+.ElseIf retEvent == 16
+Invoke SetBackColor, himage1, 255
+
+.ElseIf retEvent == 32
+Invoke SetBackColor, himage2, 255
+
+.EndIf
+Invoke Sleep, 300
+
+Invoke SetBackColor, himage, -1
+Invoke SetBackColor, himage1, -1
+Invoke SetBackColor, himage2, -1
+
+
+
+
+
+
+	.ElseIf uMsg == WM_COMMAND
+
+.If wParam == IDC_WINDOW1_BUTTON1
+	    Invoke GetDlgItemText, hWnd, IDC_WINDOW1_EDIT2, Addr acom, 6
+		Invoke CreateFile, Addr acom, GENERIC_READ Or GENERIC_WRITE, 0, NULL, OPEN_EXISTING, 0, NULL
+		Mov hCom, Eax
+        Invoke SetCommMask, hCom, 255
+
+
+		Invoke CreateThread, NULL, NULL, Offset ThreadProc, \
+                             NULL, NORMAL_PRIORITY_CLASS, \
+                             Addr ThreadID
+		Mov hThread, Eax
+
+	.EndIf
+
+
+
+
+
+
+	.ElseIf uMsg == WM_CLOSE
+		Invoke IsModal, hWnd
+		.If Eax
+			Invoke EndModal, hWnd, IDCANCEL
+			Mov Eax, TRUE ;Return TRUE
+			Ret
+		.EndIf
+	.EndIf
+	Xor Eax, Eax	;Return FALSE
+	Ret
+Window1Procedure EndP
+ThreadProc Proc Private Uses Ecx
+Invoke WaitForSingleObject, hEventStart, INFINITE
+	Invoke WaitCommEvent, hCom, Addr retEvent, NULL
+
+   Invoke PostMessage, eu, WM_FINISH, NULL, NULL
+
+
+    Jmp ThreadProc
+
+ThreadProc EndP
+
+
+
+Window1Button1 Proc hWnd:HWND, uMsg:ULONG, wParam:WPARAM, lParam:LPARAM
+	Xor Eax, Eax	;Return FALSE
+	Ret
+Window1Button1 EndP
+
+Window1Edit2 Proc hWnd:HWND, uMsg:ULONG, wParam:WPARAM, lParam:LPARAM
+	Xor Eax, Eax	;Return FALSE
+	Ret
+Window1Edit2 EndP

@@ -1,0 +1,222 @@
+;Do not modify this file!!!
+Easy Code
+Begin Window = Window1
+  AlignMode       = 0
+  AutoRedraw      = 0
+  BackColor       = 0x8000000F
+  Border          = 3
+  Caption         = 1
+  CenterWindow    = 3
+  ClientEdge      = 0
+  ClipChildren    = 1
+  ClipSiblings    = 1
+  ContextHelp     = 0
+  ControlMenu     = 1
+  CursorIcon      = [None]
+  CursorShape     = 0
+  DisableClose    = 0
+  DrawingStyle    = 0
+  DrawingWidth    = 1
+  Enabled         = 1
+  ExStyle         = 0x00040100
+  Font            = MS Sans Serif,8,400,0,0,0
+  ForeColor       = 0x80000012
+  Height          = 1200
+  IconBig         = [None]
+  IconSmall       = [None]
+  ImageType       = -1
+  KeepSize        = 0
+  KeyPreview      = 0
+  Left            = 0
+  MaximizeBox     = 1
+  MDIChild        = 0
+  Menu            = 0
+  MinimizeBox     = 1
+  NormalStyle     = 0x56CF0000
+  Picture         = [None]
+  RightToLeft     = 0
+  ScaleMode       = 1
+  ScrollBars      = 0
+  ShowMode        = 0
+  Style           = 0
+  Text            = Window1
+  TimerInterval   = 0
+  ToolTip         = 0
+  ToolWindow      = 0
+  Top             = 0
+  Visible         = 1
+  Width           = 3915
+  Begin Button = Button1
+    BackColor       = 0x8000000F
+    Border          = 0
+    Cancel          = 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    Default         = 0
+    DragAndDrop     = 1002
+    DrawFocus       = 1
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 495
+    ImageType       = -1
+    Left            = 2250
+    MultiLine       = 0
+    OwnerDraw       = 0
+    NormalStyle     = 0x54000300
+    Picture         = [None]
+    PicturePosition = 0
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 2
+    TabStop         = 1
+    Text            = TEST
+    ToolTipText     = 
+    Top             = 90
+    Visible         = 1
+    Width           = 1305
+  End
+  Begin Edit = Edit1
+    AutoHScroll     = 1
+    AutoVScroll     = 0
+    BackColor       = 0x80000005
+    Border          = 0
+    CaseStyle       = 0
+    ClientEdge      = 1
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1000
+    Enabled         = 1
+    ExStyle         = 0x00000200
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000008
+    Height          = 330
+    Left            = 1020
+    MaxLength       = 0
+    MultiLine       = 0
+    NormalStyle     = 0x54000000
+    PasswordChar    = 
+    ReadOnly        = 0
+    RightToLeft     = 0
+    ScrollBars      = 0
+    StaticEdge      = 0
+    TabOrder        = 0
+    TabStop         = 1
+    Text            = com1
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 120
+    Visible         = 1
+    WantReturn      = 0
+    Width           = 690
+  End
+  Begin Static = Static1
+    AutoSize        = 0
+    BackColor       = 0x8000000F
+    Border          = 0
+    CenterVertically= 0
+    ClientEdge      = 0
+    ClipSiblings    = 1
+    CursorIcon      = [None]
+    CursorShape     = 0
+    DragAndDrop     = 1001
+    Enabled         = 1
+    ExStyle         = 0x00000000
+    Font            = MS Sans Serif,8,400,0,0,0
+    ForeColor       = 0x80000012
+    Height          = 390
+    HyperColor      = 0x000000FF
+    HyperLink       = 0
+    Left            = 120
+    NoPrefix        = 0
+    PathEllipsis    = 0
+    NormalStyle     = 0x54000100
+    RightToLeft     = 0
+    StaticEdge      = 0
+    TabOrder        = 1
+    Text            = Port:
+    TextAlignment   = 0
+    ToolTipText     = 
+    Top             = 150
+    Transparent     = 0
+    Visible         = 1
+    Width           = 1020
+    WordWrap        = 0
+  End
+End
+
+.Const
+
+.Data?
+
+.Data
+lpFilename DB "com1 ", 0
+hport DD 0
+cuprins DB "Error!!!!", 0
+titlu DB "Port not exist!!!", 0
+titlu1 DB "Port ready for use!!!", 0
+ce_scriu DB "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", 0
+loc DD 0
+sr DB "Serial TX CP2102 TEST!!!", 0
+.Code
+
+Window1Procedure Proc hWnd:HWND, uMsg:ULONG, wParam:WPARAM, lParam:LPARAM
+	.If uMsg == WM_CREATE
+Invoke SetWindowText, hWnd, Addr sr
+	.ElseIf uMsg == WM_COMMAND
+		.If wParam == IDC_WINDOW1_BUTTON1
+			Invoke GetDlgItemText, hWnd, IDC_WINDOW1_EDIT1, Addr lpFilename, 6
+            Invoke CreateFile, Addr lpFilename, GENERIC_WRITE, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL
+            Mov hport, Eax
+            .If hport == -1
+            	Invoke MessageBox, hWnd, Addr titlu, Addr cuprins, 0
+            	.Else
+               Invoke WriteFile, hport, Addr ce_scriu, 100, Addr loc, 0
+               Invoke WriteFile, hport, Addr ce_scriu, 100, Addr loc, 0
+               Invoke WriteFile, hport, Addr ce_scriu, 100, Addr loc, 0
+               Invoke WriteFile, hport, Addr ce_scriu, 100, Addr loc, 0
+               Invoke WriteFile, hport, Addr ce_scriu, 100, Addr loc, 0
+               Invoke WriteFile, hport, Addr ce_scriu, 100, Addr loc, 0
+               Invoke WriteFile, hport, Addr ce_scriu, 100, Addr loc, 0
+               Invoke CloseHandle, hport
+               Invoke MessageBox, hWnd, Addr titlu1, Addr lpFilename, 0
+               .EndIf
+
+
+			.EndIf
+
+	.ElseIf uMsg == WM_CLOSE
+		Invoke IsModal, hWnd
+		.If Eax
+			Invoke EndModal, hWnd, IDCANCEL
+			Mov Eax, TRUE ;Return TRUE
+			Ret
+		.EndIf
+	.EndIf
+	Xor Eax, Eax	;Return FALSE
+	Ret
+Window1Procedure EndP
+
+Window1Edit1 Proc hWnd:HWND, uMsg:ULONG, wParam:WPARAM, lParam:LPARAM
+	Xor Eax, Eax	;Return FALSE
+	Ret
+Window1Edit1 EndP
+
+Window1Static1 Proc hWnd:HWND, uMsg:ULONG, wParam:WPARAM, lParam:LPARAM
+	Xor Eax, Eax	;Return FALSE
+	Ret
+Window1Static1 EndP
+
+Window1Button1 Proc hWnd:HWND, uMsg:ULONG, wParam:WPARAM, lParam:LPARAM
+	Xor Eax, Eax	;Return FALSE
+	Ret
+Window1Button1 EndP
+
+;Window1Edit2 Proc hWnd:HWND, uMsg:ULONG, wParam:WPARAM, lParam:LPARAM
+;	Xor Eax, Eax	;Return FALSE
+;	Ret
+;Window1Edit2 EndP

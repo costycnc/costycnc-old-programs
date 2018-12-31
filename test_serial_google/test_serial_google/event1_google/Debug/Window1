@@ -1,0 +1,244 @@
+.486
+.387
+.mmx
+.xmm
+.model flat,stdcall
+option casemap:none
+DEBUG Equ 1
+__NO_NOISE__ Equ 1
+include ECExterns.inc
+include ECResFile.inc
+include ECMacros.asm
+
+externdef ECLibbUnicode:dword
+externdef App:ECApplication
+externdef Error:ECErrorStruct
+
+starterrorhandler	equ	<StartErrorHandler>
+STARTERRORHANDLER	equ	<StartErrorHandler>
+
+enderrorhandler	equ	<EndErrorHandler>
+ENDERRORHANDLER	equ	<EndErrorHandler>
+
+StartErrorHandler MACRO dwErrorHandler
+	assume fs:nothing
+	mov eax,dwErrorHandler
+	mov Error.dwEip,eax
+	mov Error.dwEbp,ebp
+	push offset ECErrorHandle
+	push fs:[0]
+	mov Error.dwEsp,esp
+	mov fs:[0],esp
+ENDM
+
+EndErrorHandler MACRO
+	pop fs:[0]
+	add esp,4
+ENDM
+
+ECOffsetToTextA MACRO quoted_text:VARARG
+	LOCAL ECvtext
+.Data
+	ECvtext DB quoted_text,0
+.Code
+	EXITM <Offset ECvtext>
+ENDM
+
+ECLibGetWindowLong proto :dword
+ECInitProc proto :dword,:dword,:dword,:dword
+ECLibCreateWindow proto :dword,:HWND,:BOOL,:LPARAM
+ECErrorHandle proto :dword,:dword,:dword,:dword
+ECLibFinalHandler proto :dword
+ECLibGetWindowPointer proto
+ECLibInitLibrary proto :dword,:dword,:dword,:dword,:dword,:dword
+ECLibEndLibrary proto
+ProcessMessages proto :HWND,:ULONG,:WPARAM,:LPARAM
+OnIdle proto :dword
+ECLibGetMessage proto :dword, :dword, :dword, :dword
+ECLibDispatchMessage proto :DWord
+ECLibTranslateAccelerator proto :DWord, :DWord, :DWord
+Window1Procedure proto :HWND,:ULONG,:WPARAM,:LPARAM
+
+
+.data
+
+align 4
+
+IDR_EC_Window1_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_NAME	DB	'Window1',0
+IDR_EC_Window1_TEXT	DB	'Window1',0
+IDR_EC_Window1_Edit2_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_Edit2_NAME	DB	'Edit2',0
+IDR_EC_Window1_Edit2_TEXT	DB	'com5',0
+IDR_EC_Window1_Edit2_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_Button1_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_Button1_NAME	DB	'Button1',0
+IDR_EC_Window1_Button1_TEXT	DB	'Open Port',0
+IDR_EC_Window1_Button1_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_Edit1_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_Edit1_NAME	DB	'Edit1',0
+IDR_EC_Window1_Edit1_TEXT	DB	'0',0
+IDR_EC_Window1_Edit1_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_Image1_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_Image1_NAME	DB	'Image1',0
+IDR_EC_Window1_Image1_TEXT	DB	0
+IDR_EC_Window1_Image1_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_Image2_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_Image2_NAME	DB	'Image2',0
+IDR_EC_Window1_Image2_TEXT	DB	0
+IDR_EC_Window1_Image2_TOOLTIPTEXT	DB	0
+IDR_EC_Window1_Image3_FONT	DB	'MS Sans Serif',0
+IDR_EC_Window1_Image3_NAME	DB	'Image3',0
+IDR_EC_Window1_Image3_TEXT	DB	0
+IDR_EC_Window1_Image3_TOOLTIPTEXT	DB	0
+
+IDR_EC_Window1_DATA	DD	0,0,08000000Fh,0,0,0,3,0,0
+		DD	0,0,1,1,0,0,0,0,offset IDR_EC_Window1_FONT
+		DD	8,0,0,80000012h,0,3885,0,0,0
+		DD	0,0,0,0,0,0,1,0,0,0
+		DD	offset IDR_EC_Window1_NAME,0,0,0,0,0,ID1
+		DD	0,1,0,0,0,0,0,offset IDR_EC_Window1_TEXT,0,0,0,0
+		DD	0,0,3,0,1,3495,offset Window1Procedure
+		DD	0,0,6,0,00040100h,16CF0000h,0,offset IDR_EC_Window1_DATA
+
+IDR_EC_Window1_Edit2_DATA	DD	0,0,080000005h,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_Edit2_FONT
+			DD	8,0,0,80000008h,0,330,0,0,0,0,0,(-1),0,0
+			DD	1470,0,0,0,offset IDR_EC_Window1_Edit2_TOOLTIPTEXT,Offset IDR_EC_Window1_Edit2_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	5,1,offset IDR_EC_Window1_Edit2_TEXT,1,0,0,0,2970
+			DD	0,5,0,1,615,offset Window1Edit2,0,0,0,0
+			DD	00000210h,54000081h,0,0
+
+IDR_EC_Window1_Button1_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_Button1_FONT
+			DD	8,0,0,80000012h,0,345,0,0,0,0,0,-1,0,0
+			DD	90,0,0,0,offset IDR_EC_Window1_Button1_TOOLTIPTEXT,Offset IDR_EC_Window1_Button1_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	4,1,offset IDR_EC_Window1_Button1_TEXT,0,0,0,0,2940
+			DD	1,7,0,1,1185,offset Window1Button1,0,0,0,0
+			DD	00000010h,54004300h,0,0
+
+IDR_EC_Window1_Edit1_DATA	DD	0,0,080000005h,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_Edit1_FONT
+			DD	8,0,0,80000008h,0,330,0,0,0,0,0,(-1),0,0
+			DD	1005,0,0,0,offset IDR_EC_Window1_Edit1_TOOLTIPTEXT,Offset IDR_EC_Window1_Edit1_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	3,1,offset IDR_EC_Window1_Edit1_TEXT,1,0,0,0,210
+			DD	0,5,0,1,690,0,0,0,0,0
+			DD	00000210h,54000081h,0,0
+
+IDR_EC_Window1_Image1_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_Image1_FONT
+			DD	8,0,0,80000012h,0,480,0,0,0,0,0,-1,0,0
+			DD	2370,0,0,0,offset IDR_EC_Window1_Image1_TOOLTIPTEXT,Offset IDR_EC_Window1_Image1_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	0,0,offset IDR_EC_Window1_Image1_TEXT,0,0,0,0,675
+			DD	0,13,0,1,615,0,0,0,0,0
+			DD	00000010h,54000100h,0,0
+
+IDR_EC_Window1_Image2_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_Image2_FONT
+			DD	8,0,0,80000012h,0,435,0,0,0,0,0,-1,0,0
+			DD	1965,0,0,0,offset IDR_EC_Window1_Image2_TOOLTIPTEXT,Offset IDR_EC_Window1_Image2_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	1,0,offset IDR_EC_Window1_Image2_TEXT,0,0,0,0,180
+			DD	0,13,0,1,615,0,0,0,0,0
+			DD	00000010h,54000100h,0,0
+
+IDR_EC_Window1_Image3_DATA	DD	0,0,08000000Fh,0,0,0,0,0,0
+			DD	0,0,0,1,0,0,0,0,offset IDR_EC_Window1_Image3_FONT
+			DD	8,0,0,80000012h,0,435,0,0,0,0,0,-1,0,0
+			DD	735,0,0,0,offset IDR_EC_Window1_Image3_TOOLTIPTEXT,Offset IDR_EC_Window1_Image3_NAME,0
+			DD	0,0,0,0,0,0,1,0,0,0
+			DD	2,0,offset IDR_EC_Window1_Image3_TEXT,0,0,0,0,2310
+			DD	0,13,0,1,615,0,0,0,0,0
+			DD	00000010h,54000100h,0,0
+
+
+App	ECApplication	<0>
+Error	ECErrorStruct	<0>
+ECdwOldErrorHandler		dd	0
+ECProcessMessagesAddress		dd	0
+icc		INITCOMMONCONTROLSEX	<0>
+
+
+.code
+
+align 4
+
+start:
+	invoke SetUnhandledExceptionFilter,addr ECLibFinalHandler
+	mov ECdwOldErrorHandler,eax
+	invoke GetModuleHandle,NULL
+	mov App.Instance,eax
+	mov App.Major,1
+	mov App.Minor,0
+	mov App.Revision,1
+	invoke InitCommonControls
+	mov icc.dwSize,sizeof INITCOMMONCONTROLSEX
+	mov icc.dwICC,03FFFH ;(ICC_WIN95_CLASSES or ICC_DATE_CLASSES or ICC_USEREX_CLASSES or ICC_COOL_CLASSES or ICC_INTERNET_CLASSES or ICC_PAGESCROLLER_CLASS or ICC_NATIVEFNTCTL_CLASS)
+	invoke InitCommonControlsEx,addr icc
+	invoke ECLibInitLibrary,App.Instance,ECOffsetToTextA("Project1"),ECOffsetToTextA("Project1.exe"),ECOffsetToTextA("Easy Code Masm visual project"),3,0
+	invoke ECInitProc,App.Instance,NULL,App.CommandLine,SW_SHOWDEFAULT
+	push eax
+	invoke SetUnhandledExceptionFilter, ECdwOldErrorHandler
+	pop eax
+	invoke ExitProcess,eax
+
+ECErrorHandle PROC pExcept:dword,pFrame:dword,pContext:dword,pDispatch:dword
+	mov eax,pExcept
+	mov eax,dword ptr [eax]
+	mov Error.Code,eax
+	mov eax,pContext
+	push Error.dwEip
+	pop [eax].CONTEXT.regEip
+	push Error.dwEsp
+	pop [eax].CONTEXT.regEsp
+	push Error.dwEbp
+	pop [eax].CONTEXT.regEbp
+	mov eax,ExceptionContinueExecution
+	ret
+ECErrorHandle ENDP
+
+ECInitProc PROC uses ebx edi esi hInst:dword,hPrevInst:dword,CmdLine:dword,CmdShow:dword
+	local bOnIdle:dword,lCount:dword,OnIdleAddress:dword,msg:MSG
+
+	mov bOnIdle,1
+	mov lCount,0
+	mov OnIdleAddress,0
+	invoke ECLibGetWindowPointer
+	lea esi,IDR_EC_Window1_DATA
+	mov dword ptr [eax],esi
+	invoke ECLibCreateWindow,esi,NULL,FALSE,NULL
+	or eax,eax
+	jz L6
+	push IDR_EC_ACCEL_TABLE
+	push App.Instance
+	.if ECLibbUnicode
+		mov eax, LoadAcceleratorsW
+	.else
+		mov eax, LoadAcceleratorsA
+	.endif
+	call eax
+	mov App.Accel,eax
+L2:	invoke ECLibGetMessage,addr msg,NULL,0,0
+	cmp eax,0
+	jle L6
+	invoke ECLibTranslateAccelerator,App.Main,App.Accel,addr msg
+	or eax,eax
+	jnz L2
+	invoke TranslateMessage,addr msg
+	invoke ECLibDispatchMessage,addr msg
+	jmp L2
+L6:	invoke ECLibEndLibrary
+	cmp App.Accel,0
+	je @F
+	invoke DestroyAcceleratorTable,App.Accel
+@@:	mov eax,msg.wParam
+	ret
+ECInitProc ENDP
+
+include Window1.asm
+
+end start
