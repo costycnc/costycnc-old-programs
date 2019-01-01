@@ -5,6 +5,8 @@ based on this Atmega328 microcontroller
 The board has heart Atmega328 and some aditional components that help Atmega328 to comunicate better with outside world .
 on the board is a component that permit to comunicate with pc, a regulator can permit powered until 12volt (atmega328 resist until 5volt),
  leds,connectors, button for reset,a crystal for better stability , ecc ... so ... you can use Atmega328 alone but better is to use with board because have a lot or facilities!
+ But arduino not divented popular if it did not haved a platform with can make program for this.Name of this platform is Arduino IDE.
+ ![alt text](https://github.com/costycnc/costycnc-old-programs/blob/master/low%20program%20arduino/arduino.png)
 
 What is arduino? Fisically ... Arduino is a board with terminals with can make some pulses with can command several machines,robots,etc. 
 ![alt text](https://github.com/costycnc/costycnc-old-programs/blob/master/low%20program%20arduino/board.jpg)
