@@ -1,3 +1,11 @@
+Story of Arduino begin with this board:  
+![alt text](https://github.com/costycnc/costycnc-old-programs/blob/master/low%20program%20arduino/board.jpg)
+based on this Atmega328 microcontroller
+![alt text](https://github.com/costycnc/costycnc-old-programs/blob/master/low%20program%20arduino/arduino.png)
+The board has heart Atmega328 and some aditional components that help Atmega328 to comunicate better with outside world .
+on the board is a component that permit to comunicate with pc, a regulator can permit powered until 12volt (atmega328 resist until 5volt),
+an led, button for reset,acrystal for better stability , ecc ... so ... you can use Atmega328 alone but better is to use with board because have a lot or facilities!
+
 What is arduino? Fisically ... Arduino is a board with terminals with can make some pulses with can command several machines,robots,etc. 
 ![alt text](https://github.com/costycnc/costycnc-old-programs/blob/master/low%20program%20arduino/board.jpg)
 Also ... Arduino is a Program with can make code for command this board.
