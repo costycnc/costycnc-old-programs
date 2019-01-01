@@ -8,6 +8,15 @@ on the board is a component that permit to comunicate with pc, a regulator can p
  But arduino not divented popular if it did not haved a platform with can make program for this.Name of this platform is Arduino IDE.
  ![alt text](https://github.com/costycnc/costycnc-old-programs/blob/master/low%20program%20arduino/arduino.png)
  https://www.arduino.cc/en/main/software you can install arduino IDE in your computer or can make programs online!!!
+ But Arduino Ide not stop to make programs for his board ... Arduino Ide continued to make programs for another boards that not have anything in common with Atmega328 and his family!
+ For example Arduino IDE can make program for ESP8266(wifi) 
+ ![alt text](https://github.com/costycnc/costycnc-old-programs/blob/master/low%20program%20arduino/esp8266.jpg)
+ and ESP32(wifi+bluettoth)
+ ![alt text](https://github.com/costycnc/costycnc-old-programs/blob/master/low%20program%20arduino/esp32.jpg)
+ a powerful boards based on advanced and much much  powerfully micocontrolers than atmega328 family!!!
+ In theory looks good ... but in practice is not like that ... because more advanced processor divend more complicated to create programs for them.
+ 
+ 
 
 What is arduino? Fisically ... Arduino is a board with terminals with can make some pulses with can command several machines,robots,etc. 
 ![alt text](https://github.com/costycnc/costycnc-old-programs/blob/master/low%20program%20arduino/board.jpg)
