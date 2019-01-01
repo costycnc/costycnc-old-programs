@@ -7,6 +7,7 @@ on the board is a component that permit to comunicate with pc, a regulator can p
  leds,connectors, button for reset,a crystal for better stability , ecc ... so ... you can use Atmega328 alone but better is to use with board because have a lot or facilities!
  But arduino not divented popular if it did not haved a platform with can make program for this.Name of this platform is Arduino IDE.
  ![alt text](https://github.com/costycnc/costycnc-old-programs/blob/master/low%20program%20arduino/arduino.png)
+ https://www.arduino.cc/en/main/software you can install arduino IDE in your computer or can make programs online!!!
 
 What is arduino? Fisically ... Arduino is a board with terminals with can make some pulses with can command several machines,robots,etc. 
 ![alt text](https://github.com/costycnc/costycnc-old-programs/blob/master/low%20program%20arduino/board.jpg)
