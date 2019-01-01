@@ -16,6 +16,16 @@ on the board is a component that permit to comunicate with pc, a regulator can p
  a powerful boards based on advanced and much much  powerfully micocontrolers than atmega328 family!!!
  In theory looks good ... but in practice is not like that ... because more advanced processor divend more complicated to create programs for them.
  
+ # Now a little filosophy about programming
+ 
+ Programming is as if you want to move between 2 points across the globe.
+ If you use an IDE and a program already made it's like living in a big city and your destination is another big city, you can use a plane,the journey will be pleasant, comfortable and fast.
+ If you used an IDE and use pieces of programs (libraries) to create your pogram it's like living in a big city but your destination is not a big city , you can not use plain , but can use train,bus,car,taxi ,the journey will not be comfortable as the first but comfortable enough for costume and tie.
+ But programming language is same  as reality , not all living in a big city or not all destination is a big city... this mean :
+ You have IDE but libraries do not do what you want,so you not can make your program!
+But if you have the ambition to get to your destination with any price, you need to have beside a suit and a tie and a war equipment.
+Name of war ecquipment is Assembler(the word that scare all programmers!!!),C,C++,Python,ecc...!!!
+ 
  
 
 What is arduino? Fisically ... Arduino is a board with terminals with can make some pulses with can command several machines,robots,etc. 
